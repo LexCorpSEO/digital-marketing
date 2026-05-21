@@ -8,7 +8,9 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Kerkrit Kochdruang | Portfolio & Resume" />
 <meta property="og:description" content="Digital Marketing Team Leader (11+ Years Experience)" />
-<meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" /> <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet"/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" />
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -151,25 +153,23 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
 .add-card span{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
 
 /* ══════════════════════════════
-   PAGE: VIDEOS
+   PAGE: VIDEOS (Refactored to Thumbnails)
 ══════════════════════════════ */
 #page-videos{background:white}
 .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.vcard{border:1px solid var(--border);border-radius:2px;overflow:hidden;background:var(--paper);transition:border-color .2s,transform .25s}
+.vcard{border:1px solid var(--border);border-radius:2px;overflow:hidden;background:var(--paper);transition:border-color .2s,transform .25s;display:block;text-decoration:none}
 .vcard:hover{border-color:var(--ink);transform:translateY(-3px)}
 .vthumb{position:relative;aspect-ratio:16/9;background:var(--ink);overflow:hidden}
-.vthumb iframe{width:100%;height:100%;border:none;display:block}
-.gdrive-note{
-  position:absolute;bottom:0;left:0;right:0;padding:7px 12px;
-  background:rgba(13,13,13,.55);font-family:var(--mono);font-size:8px;
-  letter-spacing:1px;color:rgba(255,255,255,.5);display:flex;
-  align-items:center;gap:6px;
-  pointer-events:none; /* แก้บัคบังปุ่ม Google Drive */
-}
+.vthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1);opacity:0.8}
+.vcard:hover .vthumb img{transform:scale(1.05);opacity:1}
+.v-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .25s;opacity:0.9}
+.v-play-btn svg{width:22px;height:22px;margin-left:4px;fill:white}
+.vcard:hover .v-play-btn{transform:translate(-50%,-50%) scale(1.1);opacity:1}
+.gdrive-note{position:absolute;bottom:0;left:0;right:0;padding:7px 12px;background:rgba(13,13,13,.55);font-family:var(--mono);font-size:8px;letter-spacing:1px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;pointer-events:none}
 .vinfo{padding:16px 20px}
 .vtag{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:4px}
 .vinfo h4{font-family:var(--display);font-size:20px;letter-spacing:1px;color:var(--ink);margin-bottom:4px;line-height:1.2}
-.vinfo p{font-size:12px;color:var(--muted);line-height:1.65}
+.vinfo p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}
 
 /* ══════════════════════════════
    PAGE: CERTIFICATES
@@ -327,7 +327,6 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   <div class="sec-label" data-th="ประวัติการทำงาน" data-en="Work History"></div>
   <h2 class="sec-title" data-th="ประสบการณ์" data-en="EXPERIENCE"></h2>
   <div class="exp-list">
-
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-period">2021 — <span data-th="ปัจจุบัน" data-en="Present"></span></div>
@@ -345,7 +344,6 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         </ul>
       </div>
     </div>
-
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-period">2019 — 2021</div>
@@ -361,7 +359,6 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         </ul>
       </div>
     </div>
-
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-period">2018 — 2019</div>
@@ -378,7 +375,6 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         </ul>
       </div>
     </div>
-
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-period">2016 — 2018</div>
@@ -395,7 +391,6 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         </ul>
       </div>
     </div>
-
   </div>
 
   <hr class="section-divider"/>
@@ -585,41 +580,128 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   </div>
 </div>
 
-
 <div class="page" id="page-videos">
   <div class="sec-label" data-th="งานวิดีโอ" data-en="Motion Work"></div>
   <h2 class="sec-title" data-th="วิดีโอ" data-en="VIDEOS"></h2>
   <div class="vgrid">
-    <div class="vcard">
+    
+    <a href="https://drive.google.com/file/d/1-_aeFDjHwSsvuG74PePzgSA7D4u1UWxK/view" target="_blank" rel="noopener" class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/1-_aeFDjHwSsvuG74PePzgSA7D4u1UWxK/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
+        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600&q=80" alt="Video Thumbnail">
+        <div class="v-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="gdrive-note">Google Drive</div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 01</h4>
+        <p><span data-th="คลิกเพื่อรับชมผ่าน Google Drive" data-en="Click to watch on Google Drive"></span></p>
       </div>
-    </div>
-    <div class="vcard">
+    </a>
+
+    <a href="https://drive.google.com/file/d/17M0BWE73xT1qQyUEStuA4-ZyU20oG8Gq/view" target="_blank" rel="noopener" class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/17M0BWE73xT1qQyUEStuA4-ZyU20oG8Gq/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
+        <img src="https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=600&q=80" alt="Video Thumbnail">
+        <div class="v-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="gdrive-note">Google Drive</div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 02</h4>
+        <p><span data-th="คลิกเพื่อรับชมผ่าน Google Drive" data-en="Click to watch on Google Drive"></span></p>
       </div>
-    </div>
-    <div class="vcard">
+    </a>
+
+    <a href="https://drive.google.com/file/d/1ntSxl7myFPTi4bS1HkSUjpJK5onYRS7o/view" target="_blank" rel="noopener" class="vcard">
       <div class="vthumb">
-        <iframe src="https://drive.google.com/file/d/1ntSxl7myFPTi4bS1HkSUjpJK5onYRS7o/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
+        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80" alt="Video Thumbnail">
+        <div class="v-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="gdrive-note">Google Drive</div>
       </div>
       <div class="vinfo">
         <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
         <h4>Video 03</h4>
+        <p><span data-th="คลิกเพื่อรับชมผ่าน Google Drive" data-en="Click to watch on Google Drive"></span></p>
       </div>
-    </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1e8bpjg6K4eXfYPNoUrUnJQKYTNLAlR9j/view" target="_blank" rel="noopener" class="vcard">
+      <div class="vthumb">
+        <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=600&q=80" alt="Video Thumbnail">
+        <div class="v-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="gdrive-note">Google Drive</div>
+      </div>
+      <div class="vinfo">
+        <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
+        <h4>Video 04</h4>
+        <p><span data-th="คลิกเพื่อรับชมผ่าน Google Drive" data-en="Click to watch on Google Drive"></span></p>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/16OfD6Qho3NBrsd824KG8rRt1qvF-tGNd/view" target="_blank" rel="noopener" class="vcard">
+      <div class="vthumb">
+        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80" alt="Video Thumbnail">
+        <div class="v-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="gdrive-note">Google Drive</div>
+      </div>
+      <div class="vinfo">
+        <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
+        <h4>Video 05</h4>
+        <p><span data-th="คลิกเพื่อรับชมผ่าน Google Drive" data-en="Click to watch on Google Drive"></span></p>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1jbNnaB2n7o3uhT2Qacs26SS8q02k2eeR/view" target="_blank" rel="noopener" class="vcard">
+      <div class="vthumb">
+        <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=600&q=80" alt="Video Thumbnail">
+        <div class="v-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="gdrive-note">Google Drive</div>
+      </div>
+      <div class="vinfo">
+        <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
+        <h4>Video 06</h4>
+        <p><span data-th="คลิกเพื่อรับชมผ่าน Google Drive" data-en="Click to watch on Google Drive"></span></p>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1FlGlYN1nm1dcA9gRJ_fJ-K1B3079y5lu/view" target="_blank" rel="noopener" class="vcard">
+      <div class="vthumb">
+        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80" alt="Video Thumbnail">
+        <div class="v-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="gdrive-note">Google Drive</div>
+      </div>
+      <div class="vinfo">
+        <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
+        <h4>Video 07</h4>
+        <p><span data-th="คลิกเพื่อรับชมผ่าน Google Drive" data-en="Click to watch on Google Drive"></span></p>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1dLiyJO0w9MXrJ0lG0sQnoZnx-qiH5CkS/view" target="_blank" rel="noopener" class="vcard">
+      <div class="vthumb">
+        <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=600&q=80" alt="Video Thumbnail">
+        <div class="v-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="gdrive-note">Google Drive</div>
+      </div>
+      <div class="vinfo">
+        <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
+        <h4>Video 08</h4>
+        <p><span data-th="คลิกเพื่อรับชมผ่าน Google Drive" data-en="Click to watch on Google Drive"></span></p>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/16nFwtD_w1I-LI37Yx_9NwMSEH__dMjOU/view" target="_blank" rel="noopener" class="vcard">
+      <div class="vthumb">
+        <img src="https://images.unsplash.com/photo-1518131672697-613becd4fab5?w=600&q=80" alt="Video Thumbnail">
+        <div class="v-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="gdrive-note">Google Drive</div>
+      </div>
+      <div class="vinfo">
+        <div class="vtag" data-th="ผลงานวิดีโอ" data-en="Video Work"></div>
+        <h4>Video 09</h4>
+        <p><span data-th="คลิกเพื่อรับชมผ่าน Google Drive" data-en="Click to watch on Google Drive"></span></p>
+      </div>
+    </a>
+
   </div>
 </div>
 
@@ -662,7 +744,6 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
   <h2 class="sec-title" data-th="เว็บไซต์" data-en="WEBSITES"></h2>
 
   <div class="web-grid">
-
     <a class="web-card" href="https://heliotech.co.th" target="_blank" rel="noopener">
       <div class="web-preview">
         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Heliotech Preview">
@@ -726,7 +807,6 @@ h1.hero-name em{display:block;color:var(--red);font-style:normal}
         <span class="web-role" data-th="บทบาท: Digital Marketing / SEO / Google Ads" data-en="Role: Digital Marketing / SEO / Google Ads"></span>
       </div>
     </a>
-
   </div>
 </div>
 
@@ -772,13 +852,6 @@ function goTo(id) {
   const fromPage = pages[current];
   const toPage   = pages[target];
 
-  // [FIX] รีเซ็ต Iframe ในหน้า Videos ทิ้งเพื่อตัดเสียงหลอกหลอน
-  if (current === 'page-videos') {
-    fromPage.querySelectorAll('iframe').forEach(iframe => {
-      iframe.src = iframe.src; 
-    });
-  }
-
   fromPage.classList.add('exit');
 
   setTimeout(() => {
@@ -803,7 +876,6 @@ const h0 = location.hash.slice(1);
 if (h0 && pages['page-'+h0]) { goTo(h0); }
 
 window.addEventListener('popstate', () => {
-  // [FIX] สั่งให้ปิด Lightbox ถ้ากดปุ่ม Back จากบนมือถือ
   if (document.getElementById('lb').classList.contains('on')) {
     closeLb();
   }
